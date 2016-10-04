@@ -154,7 +154,7 @@ header {height:213px; background:url(../images/header.png) center top}
 
 .main-page header {background:none}
 
-.logo {float:left; line-height:0; padding:43px 0 0 0}
+.logo {float:left; line-height:0; padding:33px 0 0 0; margin:0 -10px}
 
 nav {float:left; font-size:18px; line-height:53px; padding:60px 0 0 67px}
 nav ul {margin:0}
