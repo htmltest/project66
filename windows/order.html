@@ -1,0 +1,27 @@
+<div class="window-feedback">
+    <h1>Форма заявки</h1>
+    <form action="windows/success.html" method="post" class="ajaxForm">
+        <div class="feedback-cols">
+            <div class="feedback-col">
+                <div class="form-label">Ваше имя <span>*</span></div>
+                <div class="form-input"><input type="text" name="name" value="" class="required" /></div>
+            </div>
+            <div class="feedback-col">
+                <div class="form-label">Телефон <span>*</span></div>
+                <div class="form-input"><input type="text" name="phone" value="" class="required maskPhone" /></div>
+            </div>
+            <div class="feedback-col">
+                <div class="form-label">E-mail</div>
+                <div class="form-input"><input type="text" name="email" value="" class="required email" /></div>
+            </div>
+        </div>
+
+        <div class="form-label">Сообщение</div>
+        <div class="form-input"><textarea name="message" rows="5" cols="10"></textarea></div>
+
+        <div class="form-btns">
+            <div class="form-required"><span>*</span> – поля, обязательны к заполнению</div>
+            <div class="form-submit"><input type="submit" value="Отправить заявку" /></div>
+        </div>
+    </form>
+</div>

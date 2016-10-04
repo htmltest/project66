@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Ахалтекинская лошадь</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&amp;subset=latin,cyrillic" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="js/chosen/chosen.css" />
+
+        <script src="js/jquery-2.2.4.min.js"></script>
+        <script src="js/chosen/chosen.jquery.min.js"></script>
+        <script src="js/jquery.maskedinput.min.js"></script>
+        <script src="js/validation/jquery.validate.min.js"></script>
+        <script src="js/validation/messages_ru.js"></script>
+        <script src="js/tools.js"></script>
+
+        <meta name="viewport" content="width=1280" />
+    </head>
+
+    <body>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="wrapper-inner">
+
+                <header>
+                    <div class="header-inner">
+                        <div class="logo"><a href="#"><img src="images/logo.png" alt="" width="94" height="83" /></a></div>
+
+                        <nav>
+                            <ul>
+                                <li><a href="#">О клубе</a></li>
+                                <li><a href="#">Лошади на продажу</a></li>
+                                <li><a href="#">Фото</a></li>
+                                <li><a href="#">Видео</a></li>
+                                <li><a href="#">Статьи</a></li>
+                                <li class="active"><a href="#">Контакты</a></li>
+                            </ul>
+                        </nav>
+
+                        <div class="header-lang">
+                            <a href="#" class="active"><span><img src="images/lang-ru.png" alt="" width="22" height="16" /></span><br />RUS</a>
+                            <a href="#"><span><img src="images/lang-en.png" alt="" width="22" height="16" /></span><br />ENG</a>
+                            <a href="#"><span><img src="images/lang-cn.png" alt="" width="22" height="16" /></span><br />CN</a>
+                        </div>
+
+                        <div class="header-phone">
+                            <div class="header-phone-text"><span>+</span>7 (966) 106-22-22</div>
+                            <div class="header-phone-hint">многоканальный телефон</div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- content -->
+                <div class="content">
+
+                    <h1>Контакты</h1>
+                    <h2>Конно-спортивный клуб «Русский аргамак»</h2>
+
+                    <dl class="contacts">
+                        <dt>Наш адрес</dt>
+                        <dd>143405, г. Москва, ул. Генерала Белобородова 44</dd>
+
+                        <dt>Телефон</dt>
+                        <dd>+7 (966) 106-22-22</dd>
+
+                        <dt>Так же вы можете связаться с нами, написав на электронную почту:</dt>
+                        <dd><a href="#">info@ahalteke.gold</a></dd>
+                    </dl>
+
+                    <div class="contacts-link"><a href="windows/feedback.html" class="window-link">Форма обратной связи</a></div>
+
+                    <div id="map"></div>
+                    <script src="http://api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+                    <script type="text/javascript">
+                        ymaps.ready(init);
+
+                        var myMap;
+
+                        function init () {
+                            myMap = new ymaps.Map('map', {
+                                center: [56.136, 40.390],
+                                zoom: 16,
+                                controls: ['zoomControl']
+                            });
+
+                            myMap.behaviors.disable('scrollZoom');
+
+                            var myGeocoder = ymaps.geocode('г. Москва, ул. Генерала Белобородова 44');
+                            myGeocoder.then(
+                                function (res) {
+                                    var coords = res.geoObjects.get(0).geometry.getCoordinates();
+                                    myPlacemark = new ymaps.Placemark(coords, {}, {
+                                        iconLayout: 'default#image',
+                                        iconImageHref: 'images/map-icon.png',
+                                        iconImageSize: [76, 76],
+                                        iconImageOffset: [-38, -38]
+                                    });
+                                    myMap.geoObjects.add(myPlacemark);
+                                    myMap.setCenter(coords);
+                                    var position = myMap.getGlobalPixelCenter();
+                                },
+                                function (err) {
+                                    alert('Ошибка');
+                                }
+                            );
+                        }
+                    </script>
+
+                </div>
+                <!-- content END -->
+
+            </div>
+        </div>
+        <!-- wrapper END -->
+
+        <footer>
+            <div class="footer-inner">
+
+                <ul class="footer-menu">
+                    <li><a href="#">О клубе</a></li>
+                    <li><a href="#">Фото</a></li>
+                    <li><a href="#">Видео</a></li>
+                </ul>
+
+                <ul class="footer-menu">
+                    <li><a href="#">Лошади на продажу</a></li>
+                    <li><a href="#">Статьи</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+
+                <div class="footer-phone">
+                    <div class="footer-phone-text">+7 (966) 106-22-22</div>
+                    <div class="footer-phone-link"><a href="windows/callback.html" class="footer-link window-link">заказать обратный звонок</a></div>
+                </div>
+
+                <div class="footer-email">
+                    <div class="footer-email-text"><a href="mailto:info@ahalteke.gold">info@ahalteke.gold</a></div>
+                    <div class="footer-email-link"><a href="windows/feedback.html" class="footer-link window-link">форма обратной связи</a></div>
+                </div>
+
+                <div class="footer-social">
+                    <a href="#" class="footer-social-vk"></a>
+                    <a href="#" class="footer-social-fb"></a>
+                    <a href="#" class="footer-social-yt"></a>
+                </div>
+
+                <div class="developer">Создание сайта <a href="http://bilingo.ru" target="_blank"></a></div>
+
+            </div>
+        </footer>
+
+    </body>
+</html>
